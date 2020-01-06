@@ -1,0 +1,848 @@
+﻿
+
+-- [dbo].[tbl_Niches]  GIBS_Col_Niches
+-- [dbo].[tbl_Purchasers]  GIBS_Col_Purchasers
+-- [dbo].[sp_Sections]  GIBS_Col_Sections
+-- [dbo].[sp_Status] GIBS_Col_Status
+
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[tbl_Niches]') AND type in (N'U'))
+--Rename Table
+EXEC sp_rename 'tbl_Niches', 'GIBS_Col_Niches'
+GO
+
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[tbl_Purchasers]') AND type in (N'U'))
+--Rename Table
+EXEC sp_rename 'tbl_Purchasers', 'GIBS_Col_Purchasers'
+GO
+
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[sp_Sections]') AND type in (N'U'))
+--Rename Table
+EXEC sp_rename 'sp_Sections', 'GIBS_Col_Sections'
+GO
+
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[sp_Status]') AND type in (N'U'))
+--Rename Table
+EXEC sp_rename 'sp_Status', 'GIBS_Col_Status'
+GO
+
+
+
+/****** Object:  Table [dbo].[GIBS_Col_Niches]    Script Date: 12/8/2018 7:37:12 AM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+SET ANSI_PADDING ON
+GO
+
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[GIBS_Col_Niches]') AND type in (N'U'))
+BEGIN
+CREATE TABLE [dbo].[GIBS_Col_Niches](
+	[NicheID] [int] IDENTITY(1,1) NOT NULL,
+	[NicheNumber] [int] NULL,
+	[NicheSection] [int] NULL,
+	[Status] [char](1) NULL CONSTRAINT [DF_GIBS_Col_Niches_Status]  DEFAULT ('a'),
+	[DateOfReservation] [datetime] NULL CONSTRAINT [DF_GIBS_Col_Niches_DateOfReservation]  DEFAULT (NULL),
+	[DateOfPayment] [datetime] NULL CONSTRAINT [DF_GIBS_Col_Niches_DateOfPayment]  DEFAULT (NULL),
+	[isPaid] [char](1) NULL,
+	[Price] [money] NULL,
+	[AmountPaid] [money] NULL CONSTRAINT [DF_GIBS_Col_Niches_AmountPaid]  DEFAULT ((0)),
+	[PurchaserID] [int] NULL,
+	[Remains1Salutation] [varchar](10) NULL,
+	[Remains1FirstName] [varchar](25) NULL,
+	[Remains1MI] [varchar](10) NULL,
+	[Remains1LastName] [varchar](25) NULL,
+	[Remains1Suffix] [varchar](10) NULL,
+	[Remains1DOB] [date] NULL,
+	[Remains1CityOfBirth] [varchar](30) NULL,
+	[Remains1StateOfBirth] [varchar](2) NULL,
+	[Remains1DOD] [date] NULL,
+	[Remains1CityOfDeath] [varchar](30) NULL,
+	[Remains1StateOfDeath] [varchar](2) NULL,
+	[Remains1Obituary] [text] NULL,
+	[Remains2Salutation] [varchar](10) NULL,
+	[Remains2FirstName] [varchar](25) NULL,
+	[Remains2MI] [varchar](10) NULL,
+	[Remains2LastName] [varchar](25) NULL,
+	[Remains2Suffix] [varchar](10) NULL,
+	[Remains2DOB] [date] NULL,
+	[Remains2CityOfBirth] [varchar](30) NULL,
+	[Remains2StateOfBirth] [varchar](2) NULL,
+	[Remains2DOD] [date] NULL,
+	[Remains2CityOfDeath] [varchar](30) NULL,
+	[Remains2StateOfDeath] [varchar](2) NULL,
+	[Remains2Obituary] [text] NULL,
+	[InternalNotes] [text] NULL,
+	[isActive] [char](1) NULL CONSTRAINT [DF_GIBS_Col_Niches_isActive]  DEFAULT ('y'),
+	[OwnerID] [int] NULL CONSTRAINT [DF_GIBS_Col_Niches_OwnerID]  DEFAULT ((1)),
+ CONSTRAINT [PK_GIBS_Col_Niches] PRIMARY KEY CLUSTERED 
+(
+	[NicheID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+END
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+/****** Object:  Table [dbo].[GIBS_Col_Purchasers]    Script Date: 12/8/2018 7:37:12 AM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+SET ANSI_PADDING ON
+GO
+
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[GIBS_Col_Purchasers]') AND type in (N'U'))
+BEGIN
+CREATE TABLE [dbo].[GIBS_Col_Purchasers](
+	[PurchaserID] [int] IDENTITY(1,1) NOT NULL,
+	[salutation] [varchar](10) NULL,
+	[FirstName] [varchar](30) NULL,
+	[MiddleInitial] [varchar](10) NULL,
+	[LastName] [varchar](30) NULL,
+	[Suffix] [varchar](10) NULL,
+	[Address1] [varchar](40) NULL,
+	[Address2] [varchar](40) NULL,
+	[City] [varchar](30) NULL,
+	[State] [varchar](2) NULL,
+	[Zip] [varchar](10) NULL,
+	[phone_day] [varchar](20) NULL,
+	[phone_eve] [varchar](20) NULL,
+	[phone_cell] [varchar](20) NULL,
+	[phone_fax] [varchar](20) NULL,
+	[email] [varchar](40) NULL,
+	[Comments] [text] NULL,
+	[InternalNotes] [text] NULL,
+	[Referrer] [varchar](50) NULL,
+	[Source] [varchar](50) NULL,
+	[BillingType] [varchar](2) NULL,
+	[isActive] [varchar](1) NULL CONSTRAINT [DF_GIBS_Col_RTclients_isActive]  DEFAULT ('y'),
+	[OwnerID] [int] NULL CONSTRAINT [DF_GIBS_Col_RTclients_OwnerID]  DEFAULT ((1)),
+	[InsertDate] [datetime] NULL CONSTRAINT [DF_GIBS_Col_RTclients_InsertDate]  DEFAULT (getdate()),
+ CONSTRAINT [PK_GIBS_Col_Purchasers] PRIMARY KEY CLUSTERED 
+(
+	[PurchaserID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+END
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+/****** Object:  Table [dbo].[GIBS_Col_Sections]    Script Date: 12/8/2018 7:37:12 AM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+SET ANSI_PADDING ON
+GO
+
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[GIBS_Col_Sections]') AND type in (N'U'))
+BEGIN
+CREATE TABLE [dbo].[GIBS_Col_Sections](
+	[SectionID] [int] IDENTITY(1,1) NOT NULL,
+	[SectionName] [varchar](25) NULL,
+	[NumberOfRows] [int] NULL CONSTRAINT [DF_sp_Sections_NumberOfRows]  DEFAULT ((4)),
+	[Photo] [varchar](50) NULL,
+	[PhotoThumb] [varchar](50) NULL,
+	[isActive] [char](1) NULL CONSTRAINT [DF_sp_Sections_isActive]  DEFAULT ('y'),
+	[OwnerID] [int] NULL CONSTRAINT [DF_sp_Sections_OwnerID]  DEFAULT ((1))
+) ON [PRIMARY]
+END
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+/****** Object:  Table [dbo].[GIBS_Col_Status]    Script Date: 12/8/2018 7:37:12 AM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+SET ANSI_PADDING ON
+GO
+
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[GIBS_Col_Status]') AND type in (N'U'))
+BEGIN
+CREATE TABLE [dbo].[GIBS_Col_Status](
+	[StatusID] [int] NOT NULL,
+	[StatusCode] [char](1) NULL CONSTRAINT [DF_sp_Status_StatusCode]  DEFAULT ('a'),
+	[Status] [varchar](50) NULL,
+	[isActive] [char](1) NULL CONSTRAINT [DF_sp_Status_isActive]  DEFAULT ('y'),
+	[Ownerid] [int] NULL
+) ON [PRIMARY]
+
+
+END
+GO
+
+SET ANSI_PADDING OFF
+GO
+
+
+
+/****** Object:  StoredProcedure [dbo].[GIBS_Col_UpdateReservation]    Script Date: 12/8/2018 8:43:00 AM ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[GIBS_Col_UpdateReservation]') AND type in (N'P', N'PC'))
+DROP PROCEDURE [dbo].[GIBS_Col_UpdateReservation]
+GO
+
+/****** Object:  StoredProcedure [dbo].[GIBS_Col_SearchPending]    Script Date: 12/8/2018 8:43:00 AM ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[GIBS_Col_SearchPending]') AND type in (N'P', N'PC'))
+DROP PROCEDURE [dbo].[GIBS_Col_SearchPending]
+GO
+
+/****** Object:  StoredProcedure [dbo].[GIBS_Col_Search]    Script Date: 12/8/2018 8:43:00 AM ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[GIBS_Col_Search]') AND type in (N'P', N'PC'))
+DROP PROCEDURE [dbo].[GIBS_Col_Search]
+GO
+
+/****** Object:  StoredProcedure [dbo].[GIBS_Col_InsertReservation]    Script Date: 12/8/2018 8:43:00 AM ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[GIBS_Col_InsertReservation]') AND type in (N'P', N'PC'))
+DROP PROCEDURE [dbo].[GIBS_Col_InsertReservation]
+GO
+
+/****** Object:  StoredProcedure [dbo].[GIBS_Col_GetSections]    Script Date: 12/8/2018 8:43:00 AM ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[GIBS_Col_GetSections]') AND type in (N'P', N'PC'))
+DROP PROCEDURE [dbo].[GIBS_Col_GetSections]
+GO
+
+/****** Object:  StoredProcedure [dbo].[GIBS_Col_GetNiche]    Script Date: 12/8/2018 8:43:00 AM ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[GIBS_Col_GetNiche]') AND type in (N'P', N'PC'))
+DROP PROCEDURE [dbo].[GIBS_Col_GetNiche]
+GO
+
+/****** Object:  StoredProcedure [dbo].[GIBS_Col_GetDisplaySection]    Script Date: 12/8/2018 8:43:00 AM ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[GIBS_Col_GetDisplaySection]') AND type in (N'P', N'PC'))
+DROP PROCEDURE [dbo].[GIBS_Col_GetDisplaySection]
+GO
+
+/****** Object:  StoredProcedure [dbo].[GIBS_Col_DeleteReservation]    Script Date: 12/8/2018 8:43:00 AM ******/
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[GIBS_Col_DeleteReservation]') AND type in (N'P', N'PC'))
+DROP PROCEDURE [dbo].[GIBS_Col_DeleteReservation]
+GO
+
+/****** Object:  StoredProcedure [dbo].[GIBS_Col_DeleteReservation]    Script Date: 12/8/2018 8:43:00 AM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[GIBS_Col_DeleteReservation]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[GIBS_Col_DeleteReservation] AS' 
+END
+GO
+
+
+-- [dbo].[tbl_Niches]  GIBS_Col_Niches
+-- [dbo].[tbl_Purchasers]  GIBS_Col_Purchasers
+-- [dbo].[sp_Sections]  GIBS_Col_Sections
+-- [dbo].[sp_Status] GIBS_Col_Status
+
+
+ALTER PROCEDURE [dbo].[GIBS_Col_DeleteReservation] 
+	-- Add the parameters for the stored procedure here
+
+@NicheID int
+
+AS
+BEGIN
+	
+
+UPDATE [dbo].[GIBS_Col_Niches]
+   SET 
+   [Status] = 'a'
+      ,[DateOfReservation] = null
+     , [DateOfPayment] = null
+      ,[isPaid] = 'n'
+    ,[PurchaserID] = null
+      ,[AmountPaid] = 0.00
+      ,[Remains1Salutation] = null
+      ,[Remains1FirstName] = null
+      ,[Remains1MI] = null
+      ,[Remains1LastName] = null
+      ,[Remains1Suffix] = null
+      ,[Remains1DOB] = null
+      ,[Remains1CityOfBirth] = null
+      ,[Remains1StateOfBirth] = null
+      ,[Remains1DOD] = null
+      ,[Remains1CityOfDeath] = null
+      ,[Remains1StateOfDeath] = null
+      ,[Remains1Obituary] = null
+      ,[Remains2Salutation] = null
+      ,[Remains2FirstName] = null
+      ,[Remains2MI] = null
+      ,[Remains2LastName] = null
+      ,[Remains2Suffix] = null 
+      ,[Remains2DOB] = null
+      ,[Remains2CityOfBirth] = null
+      ,[Remains2StateOfBirth] = null
+      ,[Remains2DOD] = null
+      ,[Remains2CityOfDeath] = null
+      ,[Remains2Obituary] = null
+      ,[InternalNotes] = null
+
+ WHERE [NicheID] = @NicheID
+
+
+END
+
+
+
+
+
+
+
+GO
+
+/****** Object:  StoredProcedure [dbo].[GIBS_Col_GetDisplaySection]    Script Date: 12/8/2018 8:43:00 AM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[GIBS_Col_GetDisplaySection]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[GIBS_Col_GetDisplaySection] AS' 
+END
+GO
+
+-- [dbo].[tbl_Niches]  GIBS_Col_Niches
+-- [dbo].[tbl_Purchasers]  GIBS_Col_Purchasers
+-- [dbo].[GIBS_Col_Sections]  GIBS_Col_Sections
+-- [dbo].[sp_Status] GIBS_Col_Status
+
+
+
+ALTER PROCEDURE [dbo].[GIBS_Col_GetDisplaySection] 
+	-- Add the parameters for the stored procedure here
+@NicheSection int 
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+SELECT   
+
+
+
+rtrim(ltrim(replace(replace(replace([Remains1Salutation] + ' ' + [Remains1FirstName] + ' ' + [Remains1MI] + ' ' + [Remains1LastName] + ' ' + [Remains1Suffix],' ','<>'),'><',''),'<>',' ')))
+
+AS Remains1FullName,
+
+  dbo.GIBS_Col_Niches.NicheID, dbo.GIBS_Col_Niches.NicheNumber, dbo.GIBS_Col_Niches.NicheSection, dbo.GIBS_Col_Niches.Status, dbo.GIBS_Col_Niches.Price, dbo.GIBS_Col_Niches.AmountPaid, GIBS_Col_Niches.DateOfPayment
+  , dbo.GIBS_Col_Sections.NumberOfRows , dbo.GIBS_Col_Sections.Photo , dbo.GIBS_Col_Sections.PhotoThumb , dbo.GIBS_Col_Sections.SectionName 
+  , GIBS_Col_Purchasers.PurchaserID, GIBS_Col_Purchasers.salutation, GIBS_Col_Purchasers.FirstName, GIBS_Col_Purchasers.MiddleInitial, GIBS_Col_Purchasers.LastName, GIBS_Col_Purchasers.Suffix
+  , GIBS_Col_Purchasers.Address1, GIBS_Col_Purchasers.Address2,  GIBS_Col_Purchasers.City, GIBS_Col_Purchasers.State, GIBS_Col_Purchasers.Zip, GIBS_Col_Purchasers.phone_day, GIBS_Col_Purchasers.phone_eve
+  , GIBS_Col_Purchasers.phone_cell, GIBS_Col_Purchasers.phone_fax, GIBS_Col_Purchasers.email, GIBS_Col_Purchasers.Comments,
+  (CASE WHEN dbo.GIBS_Col_Niches.AmountPaid >= dbo.GIBS_Col_Niches.Price THEN 1 ELSE 0 END) AS isPaid
+
+
+ FROM dbo.GIBS_Col_Niches 
+ INNER JOIN  dbo.GIBS_Col_Sections ON dbo.GIBS_Col_Niches.NicheSection = dbo.GIBS_Col_Sections.SectionID 
+ LEFT OUTER JOIN  GIBS_Col_Purchasers ON GIBS_Col_Niches.PurchaserID = GIBS_Col_Purchasers.PurchaserID
+
+ where NicheSection = @NicheSection
+ ORDER BY NicheNumber
+
+END
+
+
+
+
+
+
+
+GO
+
+/****** Object:  StoredProcedure [dbo].[GIBS_Col_GetNiche]    Script Date: 12/8/2018 8:43:00 AM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[GIBS_Col_GetNiche]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[GIBS_Col_GetNiche] AS' 
+END
+GO
+
+-- [dbo].[tbl_Niches]  GIBS_Col_Niches
+-- [dbo].[tbl_Purchasers]  GIBS_Col_Purchasers
+-- [dbo].[GIBS_Col_Sections]  GIBS_Col_Sections
+-- [dbo].[sp_Status] GIBS_Col_Status
+
+ALTER PROCEDURE [dbo].[GIBS_Col_GetNiche] 
+	-- Add the parameters for the stored procedure here
+@NicheID int 
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+SELECT [NicheID]
+      ,[NicheNumber]
+      ,[NicheSection]
+	  ,[SectionName]
+	  ,[Photo]
+	  ,[PhotoThumb]
+      ,[Status]
+      ,CONVERT(date,  [DateOfReservation]) AS [DateOfReservation]
+      ,[DateOfPayment]
+       ,(CASE WHEN dbo.GIBS_Col_Niches.AmountPaid >= dbo.GIBS_Col_Niches.Price THEN 1 ELSE 0 END) AS isPaid
+      ,[Price]
+      ,[AmountPaid]
+      ,[GIBS_Col_Niches].[PurchaserID]
+      ,[Remains1Salutation]
+      ,[Remains1FirstName]
+      ,[Remains1MI]
+      ,[Remains1LastName]
+      ,[Remains1Suffix]
+      ,[Remains1DOB]
+      ,[Remains1CityOfBirth]
+      ,[Remains1StateOfBirth]
+      ,[Remains1DOD]
+      ,[Remains1CityOfDeath]
+      ,[Remains1StateOfDeath]
+      ,[Remains1Obituary]
+      ,[Remains2Salutation]
+      ,[Remains2FirstName]
+      ,[Remains2MI]
+      ,[Remains2LastName]
+      ,[Remains2Suffix]
+      ,[Remains2DOB]
+      ,[Remains2CityOfBirth]
+      ,[Remains2StateOfBirth]
+      ,[Remains2DOD]
+      ,[Remains2CityOfDeath]
+      ,[Remains2StateOfDeath]
+      ,[Remains2Obituary]
+	,[GIBS_Col_Niches].[InternalNotes]
+      ,[GIBS_Col_Purchasers].[InternalNotes] AS InternalNotesPurchaser
+	  ,[GIBS_Col_Purchasers].[Comments] AS Comments
+	  ,[salutation]
+      ,[FirstName]
+      ,[MiddleInitial]
+      ,[LastName]
+      ,[Suffix]
+      ,[Address1]
+      ,[Address2]
+      ,[City]
+      ,[State]
+      ,[Zip]
+      ,[phone_day]
+      ,[phone_eve]
+      ,[phone_cell]
+      ,[phone_fax]
+      ,[email]
+     
+      ,[Referrer]
+      ,[Source]
+      ,[BillingType]
+  FROM [dbo].[GIBS_Col_Niches]  
+  LEFT OUTER JOIN [dbo].[GIBS_Col_Purchasers] ON GIBS_Col_Purchasers.PurchaserID = GIBS_Col_Niches.PurchaserID
+  Inner Join [dbo].[GIBS_Col_Sections] on GIBS_Col_Sections.SectionID = GIBS_Col_Niches.NicheSection
+  WHERE [NicheID] = @NicheID
+
+END
+
+
+
+
+
+
+
+GO
+/****** Object:  StoredProcedure [dbo].[GIBS_Col_GetSections]    Script Date: 12/8/2018 8:43:00 AM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[GIBS_Col_GetSections]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[GIBS_Col_GetSections] AS' 
+END
+GO
+
+
+-- [dbo].[tbl_Niches]  GIBS_Col_Niches
+-- [dbo].[tbl_Purchasers]  GIBS_Col_Purchasers
+-- [dbo].[GIBS_Col_Sections]  GIBS_Col_Sections
+-- [dbo].[sp_Status] GIBS_Col_Status
+
+
+
+
+ALTER PROCEDURE [dbo].[GIBS_Col_GetSections] 
+	-- Add the parameters for the stored procedure here
+--@ModuleID int 
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+	select SectionID, SectionName, NumberOfRows, Photo, PhotoThumb, isActive,
+	0 as  NumberOfColumns
+	from GIBS_Col_Sections 
+	where isactive='y' 
+	order by SectionName
+
+END
+
+
+
+
+
+GO
+
+/****** Object:  StoredProcedure [dbo].[GIBS_Col_InsertReservation]    Script Date: 12/8/2018 8:43:00 AM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[GIBS_Col_InsertReservation]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[GIBS_Col_InsertReservation] AS' 
+END
+GO
+
+
+-- [dbo].[tbl_Niches]  GIBS_Col_Niches
+-- [dbo].[tbl_Purchasers]  GIBS_Col_Purchasers
+-- [dbo].[GIBS_Col_Sections]  GIBS_Col_Sections
+-- [dbo].[sp_Status] GIBS_Col_Status
+
+
+
+ALTER PROCEDURE [dbo].[GIBS_Col_InsertReservation] 
+	-- Add the parameters for the stored procedure here
+--@ModuleID int 
+@Salutation varchar(50),
+@FirstName varchar(50),
+@MiddleInitial varchar(50),
+@LastName varchar(50),
+@Suffix varchar(50),
+@Email varchar(50),
+@Address1 varchar(50),
+@Address2 varchar(50),
+@City varchar(50),
+@State varchar(50),
+@Zip varchar(50),
+@phone_day varchar(50),
+@phone_eve varchar(50),
+@phone_cell varchar(50),
+@phone_fax varchar(50),
+@AmountPaid money,
+@NicheID int,
+@Comments ntext
+
+
+AS
+BEGIN
+	
+	Declare @PurchaserID int
+
+INSERT INTO dbo.GIBS_Col_Purchasers 
+	 (salutation, FirstName, MiddleInitial, LastName, Suffix, email, 
+	 Address1, Address2, City, State, Zip, phone_day, phone_eve, phone_cell, phone_fax, Comments)
+	VALUES     (@Salutation, @FirstName, @MiddleInitial, @LastName, @Suffix, @Email,
+	@Address1, @Address2, @City, @State, @Zip, @phone_day, @phone_eve, @phone_cell, @phone_fax, @Comments)
+
+	SELECT @PurchaserID = @@IDENTITY
+
+	update GIBS_Col_Niches set  
+	AmountPaid = @AmountPaid,
+	 PurchaserID=@PurchaserID ,
+	 DateOfReservation= GetDate(),
+
+	Status = 'p' 
+
+	where NicheID = @NicheID
+
+	Select @PurchaserID AS PurchaserID
+
+END
+
+
+
+
+
+GO
+
+/****** Object:  StoredProcedure [dbo].[GIBS_Col_Search]    Script Date: 12/8/2018 8:43:00 AM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[GIBS_Col_Search]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[GIBS_Col_Search] AS' 
+END
+GO
+
+
+-- [dbo].[tbl_Niches]  GIBS_Col_Niches
+-- [dbo].[tbl_Purchasers]  GIBS_Col_Purchasers
+-- [dbo].[GIBS_Col_Sections]  GIBS_Col_Sections
+-- [dbo].[sp_Status] GIBS_Col_Status
+
+
+
+ALTER PROCEDURE [dbo].[GIBS_Col_Search] 
+	-- Add the parameters for the stored procedure here
+@LastName varchar(30) 
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+SELECT     
+
+rtrim(ltrim(replace(replace(replace([Remains1Salutation] + ' ' + [Remains1FirstName] + ' ' + [Remains1MI] + ' ' + [Remains1LastName] + ' ' + [Remains1Suffix],' ','<>'),'><',''),'<>',' ')))
+
+AS Remains1FullName,
+
+rtrim(ltrim(replace(replace(replace([Remains2Salutation] + ' ' + [Remains2FirstName] + ' ' + [Remains2MI] + ' ' + [Remains2LastName] + ' ' + [Remains2Suffix],' ','<>'),'><',''),'<>',' ')))
+
+AS Remains2FullName,
+
+dbo.GIBS_Col_Niches.NicheID, dbo.GIBS_Col_Niches.NicheNumber, dbo.GIBS_Col_Niches.NicheSection, dbo.GIBS_Col_Niches.Status,  dbo.GIBS_Col_Niches.Price, dbo.GIBS_Col_Niches.AmountPaid, GIBS_Col_Niches.DateOfPayment
+  , dbo.GIBS_Col_Sections.NumberOfRows , dbo.GIBS_Col_Sections.Photo , dbo.GIBS_Col_Sections.PhotoThumb , dbo.GIBS_Col_Sections.SectionName 
+  , GIBS_Col_Purchasers.PurchaserID, GIBS_Col_Purchasers.salutation, GIBS_Col_Purchasers.FirstName, GIBS_Col_Purchasers.MiddleInitial, GIBS_Col_Purchasers.LastName, GIBS_Col_Purchasers.Suffix
+  , GIBS_Col_Purchasers.Address1, GIBS_Col_Purchasers.Address2,  GIBS_Col_Purchasers.City, GIBS_Col_Purchasers.State, GIBS_Col_Purchasers.Zip, GIBS_Col_Purchasers.phone_day, GIBS_Col_Purchasers.phone_eve
+  , GIBS_Col_Purchasers.phone_cell, GIBS_Col_Purchasers.phone_fax, GIBS_Col_Purchasers.email, GIBS_Col_Purchasers.Comments
+  , (CASE WHEN dbo.GIBS_Col_Niches.AmountPaid >= dbo.GIBS_Col_Niches.Price THEN 1 ELSE 0 END) AS isPaid
+ FROM dbo.GIBS_Col_Niches 
+ INNER JOIN  dbo.GIBS_Col_Sections ON dbo.GIBS_Col_Niches.NicheSection = dbo.GIBS_Col_Sections.SectionID 
+ LEFT OUTER JOIN  GIBS_Col_Purchasers ON GIBS_Col_Niches.PurchaserID = GIBS_Col_Purchasers.PurchaserID
+
+ where LastName like  @LastName + '%'
+ ORDER BY LastName
+
+END
+
+
+
+
+
+
+GO
+
+/****** Object:  StoredProcedure [dbo].[GIBS_Col_SearchPending]    Script Date: 12/8/2018 8:43:00 AM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[GIBS_Col_SearchPending]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[GIBS_Col_SearchPending] AS' 
+END
+GO
+
+
+ALTER PROCEDURE [dbo].[GIBS_Col_SearchPending] 
+	-- Add the parameters for the stored procedure here
+--@LastName varchar(30) 
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	SET NOCOUNT ON;
+
+SELECT     
+
+rtrim(ltrim(replace(replace(replace([Remains1Salutation] + ' ' + [Remains1FirstName] + ' ' + [Remains1MI] + ' ' + [Remains1LastName] + ' ' + [Remains1Suffix],' ','<>'),'><',''),'<>',' ')))
+
+AS Remains1FullName,
+
+rtrim(ltrim(replace(replace(replace([Remains2Salutation] + ' ' + [Remains2FirstName] + ' ' + [Remains2MI] + ' ' + [Remains2LastName] + ' ' + [Remains2Suffix],' ','<>'),'><',''),'<>',' ')))
+
+AS Remains2FullName,
+
+dbo.GIBS_Col_Niches.NicheID, dbo.GIBS_Col_Niches.NicheNumber, dbo.GIBS_Col_Niches.NicheSection, dbo.GIBS_Col_Niches.Status,  dbo.GIBS_Col_Niches.Price, dbo.GIBS_Col_Niches.AmountPaid, GIBS_Col_Niches.DateOfPayment
+  , dbo.GIBS_Col_Sections.NumberOfRows , dbo.GIBS_Col_Sections.Photo , dbo.GIBS_Col_Sections.PhotoThumb , dbo.GIBS_Col_Sections.SectionName 
+  , GIBS_Col_Purchasers.PurchaserID, GIBS_Col_Purchasers.salutation, GIBS_Col_Purchasers.FirstName, GIBS_Col_Purchasers.MiddleInitial, GIBS_Col_Purchasers.LastName, GIBS_Col_Purchasers.Suffix
+  , GIBS_Col_Purchasers.Address1, GIBS_Col_Purchasers.Address2,  GIBS_Col_Purchasers.City, GIBS_Col_Purchasers.State, GIBS_Col_Purchasers.Zip, GIBS_Col_Purchasers.phone_day, GIBS_Col_Purchasers.phone_eve
+  , GIBS_Col_Purchasers.phone_cell, GIBS_Col_Purchasers.phone_fax, GIBS_Col_Purchasers.email, GIBS_Col_Purchasers.Comments
+  , (CASE WHEN dbo.GIBS_Col_Niches.AmountPaid >= dbo.GIBS_Col_Niches.Price THEN 1 ELSE 0 END) AS isPaid
+ FROM dbo.GIBS_Col_Niches 
+ INNER JOIN  dbo.GIBS_Col_Sections ON dbo.GIBS_Col_Niches.NicheSection = dbo.GIBS_Col_Sections.SectionID 
+ LEFT OUTER JOIN  GIBS_Col_Purchasers ON GIBS_Col_Niches.PurchaserID = GIBS_Col_Purchasers.PurchaserID
+
+ where [Status] = 'p'
+ ORDER BY LastName
+
+END
+
+
+
+
+
+
+GO
+
+/****** Object:  StoredProcedure [dbo].[GIBS_Col_UpdateReservation]    Script Date: 12/8/2018 8:43:00 AM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+IF NOT EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].[GIBS_Col_UpdateReservation]') AND type in (N'P', N'PC'))
+BEGIN
+EXEC dbo.sp_executesql @statement = N'CREATE PROCEDURE [dbo].[GIBS_Col_UpdateReservation] AS' 
+END
+GO
+
+
+
+
+
+ALTER PROCEDURE [dbo].[GIBS_Col_UpdateReservation] 
+	-- Add the parameters for the stored procedure here
+@Status varchar(1),
+@NicheID int,
+@PurchaserID int,
+
+@Salutation varchar(10),
+@FirstName varchar(30),
+@MiddleInitial varchar(10),
+@LastName varchar(30),
+@Suffix varchar(10),
+@Email varchar(40),
+@Address1 varchar(40),
+@Address2 varchar(40),
+@City varchar(50),
+@State varchar(50),
+@Zip varchar(50),
+@phone_day varchar(20),
+@phone_eve varchar(20),
+@phone_cell varchar(20),
+@phone_fax varchar(20),
+@AmountPaid money,
+
+@Comments ntext,
+
+@DateOfPayment DateTime,
+@Remains1Salutation varchar(10),
+@Remains1FirstName varchar(25),
+@Remains1MI varchar(10),
+@Remains1LastName varchar(25),
+@Remains1Suffix varchar(10),
+@Remains1DOB datetime,
+@Remains1CityOfBirth varchar(30),
+@Remains1StateOfBirth varchar(2),
+@Remains1DOD datetime,
+@Remains1CityOfDeath varchar(30),
+@Remains1StateOfDeath varchar(2),
+@Remains1Obituary ntext,
+
+@Remains2Salutation varchar(10),
+@Remains2FirstName varchar(25),
+@Remains2MI varchar(10),
+@Remains2LastName varchar(25),
+@Remains2Suffix varchar(10),
+@Remains2DOB datetime,
+@Remains2CityOfBirth varchar(30),
+@Remains2StateOfBirth varchar(2),
+@Remains2DOD datetime,
+@Remains2CityOfDeath varchar(30),
+@Remains2StateOfDeath varchar(2),
+@Remains2Obituary ntext,
+@InternalNotes ntext
+
+AS
+BEGIN
+	
+
+UPDATE [dbo].[GIBS_Col_Purchasers]
+   SET [salutation] = @Salutation
+      ,[FirstName] = @FirstName
+      ,[MiddleInitial] = @MiddleInitial
+      ,[LastName] = @LastName
+      ,[Suffix] = @Suffix
+      ,[Address1] = @Address1
+      ,[Address2] = @Address2
+      ,[City] = @City
+      ,[State] = @State
+      ,[Zip] = @Zip
+      ,[phone_day] = @phone_day
+      ,[phone_eve] = @phone_eve
+      ,[phone_cell] = @phone_cell
+      ,[phone_fax] = @phone_fax
+      ,[email] = @Email
+      ,[Comments] = @Comments
+
+ WHERE [PurchaserID] = @PurchaserID
+
+UPDATE [dbo].[GIBS_Col_Niches]
+   SET 
+   [Status] = @Status
+    --  ,[DateOfReservation] = <DateOfReservation, datetime,>
+     , [DateOfPayment] = @DateOfPayment
+      --,[isPaid] = <isPaid, char(1),>
+    
+      ,[AmountPaid] = @AmountPaid
+     -- ,[PurchaserID] = <PurchaserID, int,>
+      ,[Remains1Salutation] = @Remains1Salutation
+      ,[Remains1FirstName] = @Remains1FirstName
+      ,[Remains1MI] = @Remains1MI
+      ,[Remains1LastName] = @Remains1LastName
+      ,[Remains1Suffix] = @Remains1Suffix
+      ,[Remains1DOB] = @Remains1DOB
+      ,[Remains1CityOfBirth] = @Remains1CityOfBirth
+      ,[Remains1StateOfBirth] = @Remains1StateOfBirth
+      ,[Remains1DOD] = @Remains1DOD
+      ,[Remains1CityOfDeath] = @Remains1CityOfDeath
+      ,[Remains1StateOfDeath] = @Remains1StateOfDeath
+      ,[Remains1Obituary] = @Remains1Obituary
+      ,[Remains2Salutation] = @Remains2Salutation
+      ,[Remains2FirstName] = @Remains2FirstName
+      ,[Remains2MI] = @Remains2MI
+      ,[Remains2LastName] = @Remains2LastName
+      ,[Remains2Suffix] = @Remains2Suffix 
+      ,[Remains2DOB] = @Remains2DOB
+      ,[Remains2CityOfBirth] = @Remains2CityOfBirth
+      ,[Remains2StateOfBirth] = @Remains2StateOfBirth
+      ,[Remains2DOD] = @Remains2DOD
+      ,[Remains2CityOfDeath] = @Remains2CityOfDeath
+      ,[Remains2Obituary] = @Remains2Obituary
+      ,[InternalNotes] = @InternalNotes
+
+ WHERE [NicheID] = @NicheID
+
+	Select @NicheID AS NicheID
+
+END
+
+
+
+GO
+
+
