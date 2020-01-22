@@ -13,7 +13,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>GIBS.Modules.Columbarium</RootNamespace>
     <AssemblyName>Columbarium</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <UseIISExpress>false</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
@@ -24,6 +24,8 @@
     <RestorePackages>true</RestorePackages>
     <Use64BitIISExpress />
     <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -196,9 +198,6 @@
     <Content Include="Providers\DataProviders\SqlDataProvider\Uninstall.SqlDataProvider" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="packages.config" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Providers\DataProviders\SqlDataProvider\00.00.04.SqlDataProvider" />
   </ItemGroup>
   <ItemGroup>
@@ -220,6 +219,7 @@
     <Content Include="Providers\DataProviders\SqlDataProvider\00.00.19.SqlDataProvider" />
     <Content Include="SalesContract.pdf" />
     <Content Include="Policies_and_Procedures-Jan-2019.pdf" />
+    <None Include="packages.config" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>
@@ -238,17 +238,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
-          <AutoAssignPort>False</AutoAssignPort>
-          <DevelopmentServerPort>54998</DevelopmentServerPort>
-          <DevelopmentServerVPath>
-          </DevelopmentServerVPath>
-          <IISUrl>http://dnndev.me/desktopmodules/Columbarium</IISUrl>
-          <NTLMAuthentication>False</NTLMAuthentication>
-          <UseCustomServer>False</UseCustomServer>
-          <CustomServerUrl>
-          </CustomServerUrl>
-          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+          <SaveServerSettingsInUserFile>True</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
     </VisualStudio>
@@ -257,7 +247,7 @@
     <Extension>zip</Extension>
     <DNNFileName>Columbarium</DNNFileName>
     <PackageName>Columbarium</PackageName>
-    <MSBuildCommunityTasksPath>$(SolutionDir)\BuildScripts</MSBuildCommunityTasksPath>
+    <MSBuildCommunityTasksPath>$(SolutionDir)\packages\MSBuildTasks.1.5.0.235\tools</MSBuildCommunityTasksPath>
   </PropertyGroup>
   <Import Project="BuildScripts\ModulePackage.Targets" />
   <Target Name="AfterBuild" DependsOnTargets="PackageModule">
