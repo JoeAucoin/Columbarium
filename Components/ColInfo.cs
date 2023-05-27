@@ -20,8 +20,8 @@ namespace GIBS.Modules.Columbarium.Components
         public int NumberOfColumns { get; set; }
         public string Photo { get; set; }
         public string PhotoThumb { get; set; }
-        
-        
+
+        public int NicheSize { get; set; }
         public int NicheID { get; set; }
         public int NicheNumber { get; set; }
         public int NicheSection { get; set; }

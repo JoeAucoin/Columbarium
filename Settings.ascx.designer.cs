@@ -7,11 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace GIBS.Modules.Columbarium {
-    
-    
-    public partial class Settings {
-        
+namespace GIBS.Modules.Columbarium
+{
+
+
+    public partial class Settings
+    {
+
         /// <summary>
         /// sectGeneralSettings control.
         /// </summary>
@@ -20,7 +22,7 @@ namespace GIBS.Modules.Columbarium {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DotNetNuke.UI.UserControls.SectionHeadControl sectGeneralSettings;
-        
+
         /// <summary>
         /// GeneralSection control.
         /// </summary>
@@ -29,7 +31,7 @@ namespace GIBS.Modules.Columbarium {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl GeneralSection;
-        
+
         /// <summary>
         /// lblPageSize control.
         /// </summary>
@@ -38,7 +40,7 @@ namespace GIBS.Modules.Columbarium {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DotNetNuke.UI.UserControls.LabelControl lblPageSize;
-        
+
         /// <summary>
         /// ddlPageSize control.
         /// </summary>
@@ -47,7 +49,7 @@ namespace GIBS.Modules.Columbarium {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlPageSize;
-        
+
         /// <summary>
         /// lblManagerRole control.
         /// </summary>
@@ -56,7 +58,7 @@ namespace GIBS.Modules.Columbarium {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DotNetNuke.UI.UserControls.LabelControl lblManagerRole;
-        
+
         /// <summary>
         /// ddlRoles control.
         /// </summary>
@@ -65,7 +67,7 @@ namespace GIBS.Modules.Columbarium {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlRoles;
-        
+
         /// <summary>
         /// lblDisplayRemains control.
         /// </summary>
@@ -74,7 +76,7 @@ namespace GIBS.Modules.Columbarium {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DotNetNuke.UI.UserControls.LabelControl lblDisplayRemains;
-        
+
         /// <summary>
         /// CbxDisplayRemains control.
         /// </summary>
@@ -83,7 +85,7 @@ namespace GIBS.Modules.Columbarium {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CheckBox CbxDisplayRemains;
-        
+
         /// <summary>
         /// lblShowPriceOnCheckout control.
         /// </summary>
@@ -92,7 +94,7 @@ namespace GIBS.Modules.Columbarium {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DotNetNuke.UI.UserControls.LabelControl lblShowPriceOnCheckout;
-        
+
         /// <summary>
         /// CbxShowPriceOnCheckout control.
         /// </summary>
@@ -101,7 +103,7 @@ namespace GIBS.Modules.Columbarium {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CheckBox CbxShowPriceOnCheckout;
-        
+
         /// <summary>
         /// lblEnableDiscount control.
         /// </summary>
@@ -110,7 +112,7 @@ namespace GIBS.Modules.Columbarium {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DotNetNuke.UI.UserControls.LabelControl lblEnableDiscount;
-        
+
         /// <summary>
         /// CbxEnableDiscount control.
         /// </summary>
@@ -119,7 +121,7 @@ namespace GIBS.Modules.Columbarium {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CheckBox CbxEnableDiscount;
-        
+
         /// <summary>
         /// lblEmailFrom control.
         /// </summary>
@@ -128,7 +130,7 @@ namespace GIBS.Modules.Columbarium {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DotNetNuke.UI.UserControls.LabelControl lblEmailFrom;
-        
+
         /// <summary>
         /// txtEmailFrom control.
         /// </summary>
@@ -137,7 +139,7 @@ namespace GIBS.Modules.Columbarium {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtEmailFrom;
-        
+
         /// <summary>
         /// lblEmailNotify control.
         /// </summary>
@@ -146,7 +148,7 @@ namespace GIBS.Modules.Columbarium {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DotNetNuke.UI.UserControls.LabelControl lblEmailNotify;
-        
+
         /// <summary>
         /// txtEmailNotify control.
         /// </summary>
@@ -155,7 +157,7 @@ namespace GIBS.Modules.Columbarium {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtEmailNotify;
-        
+
         /// <summary>
         /// lblEmailBCC control.
         /// </summary>
@@ -164,7 +166,7 @@ namespace GIBS.Modules.Columbarium {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DotNetNuke.UI.UserControls.LabelControl lblEmailBCC;
-        
+
         /// <summary>
         /// txtEmailBCC control.
         /// </summary>
@@ -173,7 +175,7 @@ namespace GIBS.Modules.Columbarium {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtEmailBCC;
-        
+
         /// <summary>
         /// lblEmailSubject control.
         /// </summary>
@@ -182,7 +184,7 @@ namespace GIBS.Modules.Columbarium {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DotNetNuke.UI.UserControls.LabelControl lblEmailSubject;
-        
+
         /// <summary>
         /// txtEmailSubject control.
         /// </summary>
@@ -191,7 +193,7 @@ namespace GIBS.Modules.Columbarium {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtEmailSubject;
-        
+
         /// <summary>
         /// lblEmailMessage control.
         /// </summary>
@@ -200,7 +202,7 @@ namespace GIBS.Modules.Columbarium {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DotNetNuke.UI.UserControls.LabelControl lblEmailMessage;
-        
+
         /// <summary>
         /// txtEmailMessage control.
         /// </summary>
@@ -209,7 +211,7 @@ namespace GIBS.Modules.Columbarium {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtEmailMessage;
-        
+
         /// <summary>
         /// lblImagePath control.
         /// </summary>
@@ -218,7 +220,7 @@ namespace GIBS.Modules.Columbarium {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DotNetNuke.UI.UserControls.LabelControl lblImagePath;
-        
+
         /// <summary>
         /// txtImagePath control.
         /// </summary>
@@ -227,7 +229,7 @@ namespace GIBS.Modules.Columbarium {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtImagePath;
-        
+
         /// <summary>
         /// lblWallImage control.
         /// </summary>
@@ -236,7 +238,7 @@ namespace GIBS.Modules.Columbarium {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DotNetNuke.UI.UserControls.LabelControl lblWallImage;
-        
+
         /// <summary>
         /// txtWallImage control.
         /// </summary>
@@ -245,7 +247,25 @@ namespace GIBS.Modules.Columbarium {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtWallImage;
-        
+
+        /// <summary>
+        /// lblSelectWallImage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DotNetNuke.UI.UserControls.LabelControl lblSelectWallImage;
+
+        /// <summary>
+        /// fpPictureWallImage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::DotNetNuke.Web.UI.WebControls.DnnFilePicker fpPictureWallImage;
+
         /// <summary>
         /// lbljQueryUI control.
         /// </summary>
@@ -254,7 +274,7 @@ namespace GIBS.Modules.Columbarium {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DotNetNuke.UI.UserControls.LabelControl lbljQueryUI;
-        
+
         /// <summary>
         /// txtjQueryUI control.
         /// </summary>
@@ -263,7 +283,7 @@ namespace GIBS.Modules.Columbarium {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtjQueryUI;
-        
+
         /// <summary>
         /// Sectionhead1 control.
         /// </summary>
@@ -272,7 +292,7 @@ namespace GIBS.Modules.Columbarium {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DotNetNuke.UI.UserControls.SectionHeadControl Sectionhead1;
-        
+
         /// <summary>
         /// ReportServerSection control.
         /// </summary>
@@ -281,7 +301,7 @@ namespace GIBS.Modules.Columbarium {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl ReportServerSection;
-        
+
         /// <summary>
         /// lblurlReportServer control.
         /// </summary>
@@ -290,7 +310,7 @@ namespace GIBS.Modules.Columbarium {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DotNetNuke.UI.UserControls.LabelControl lblurlReportServer;
-        
+
         /// <summary>
         /// txturlReportServer control.
         /// </summary>
@@ -299,7 +319,7 @@ namespace GIBS.Modules.Columbarium {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txturlReportServer;
-        
+
         /// <summary>
         /// lblReportPath control.
         /// </summary>
@@ -308,7 +328,7 @@ namespace GIBS.Modules.Columbarium {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DotNetNuke.UI.UserControls.LabelControl lblReportPath;
-        
+
         /// <summary>
         /// txtReportPath control.
         /// </summary>
@@ -317,7 +337,7 @@ namespace GIBS.Modules.Columbarium {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtReportPath;
-        
+
         /// <summary>
         /// lblRSCredentialsUserName control.
         /// </summary>
@@ -326,7 +346,7 @@ namespace GIBS.Modules.Columbarium {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DotNetNuke.UI.UserControls.LabelControl lblRSCredentialsUserName;
-        
+
         /// <summary>
         /// txtRSCredentialsUserName control.
         /// </summary>
@@ -335,7 +355,7 @@ namespace GIBS.Modules.Columbarium {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtRSCredentialsUserName;
-        
+
         /// <summary>
         /// lblRSCredentialsPassword control.
         /// </summary>
@@ -344,7 +364,7 @@ namespace GIBS.Modules.Columbarium {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DotNetNuke.UI.UserControls.LabelControl lblRSCredentialsPassword;
-        
+
         /// <summary>
         /// txtRSCredentialsPassword control.
         /// </summary>
@@ -353,7 +373,7 @@ namespace GIBS.Modules.Columbarium {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtRSCredentialsPassword;
-        
+
         /// <summary>
         /// lblRSCredentialsDomain control.
         /// </summary>
@@ -362,7 +382,7 @@ namespace GIBS.Modules.Columbarium {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DotNetNuke.UI.UserControls.LabelControl lblRSCredentialsDomain;
-        
+
         /// <summary>
         /// txtRSCredentialsDomain control.
         /// </summary>

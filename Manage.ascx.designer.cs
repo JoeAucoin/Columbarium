@@ -7,11 +7,13 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace GIBS.Modules.Columbarium {
-    
-    
-    public partial class Manage {
-        
+namespace GIBS.Modules.Columbarium
+{
+
+
+    public partial class Manage
+    {
+
         /// <summary>
         /// lblDebug control.
         /// </summary>
@@ -20,7 +22,7 @@ namespace GIBS.Modules.Columbarium {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblDebug;
-        
+
         /// <summary>
         /// LinkButtonShowPendingNew control.
         /// </summary>
@@ -29,7 +31,7 @@ namespace GIBS.Modules.Columbarium {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton LinkButtonShowPendingNew;
-        
+
         /// <summary>
         /// txtLastName control.
         /// </summary>
@@ -38,7 +40,7 @@ namespace GIBS.Modules.Columbarium {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtLastName;
-        
+
         /// <summary>
         /// LinkButton1Search control.
         /// </summary>
@@ -47,7 +49,7 @@ namespace GIBS.Modules.Columbarium {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton LinkButton1Search;
-        
+
         /// <summary>
         /// btn_Restore control.
         /// </summary>
@@ -56,7 +58,7 @@ namespace GIBS.Modules.Columbarium {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton btn_Restore;
-        
+
         /// <summary>
         /// Btn_ExitAdmin control.
         /// </summary>
@@ -65,7 +67,7 @@ namespace GIBS.Modules.Columbarium {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.LinkButton Btn_ExitAdmin;
-        
+
         /// <summary>
         /// WallAndImages control.
         /// </summary>
@@ -74,7 +76,7 @@ namespace GIBS.Modules.Columbarium {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl WallAndImages;
-        
+
         /// <summary>
         /// ImageWall control.
         /// </summary>
@@ -83,7 +85,7 @@ namespace GIBS.Modules.Columbarium {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Image ImageWall;
-        
+
         /// <summary>
         /// ddlDisplaySection control.
         /// </summary>
@@ -92,7 +94,7 @@ namespace GIBS.Modules.Columbarium {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlDisplaySection;
-        
+
         /// <summary>
         /// ImageNicheSection control.
         /// </summary>
@@ -101,7 +103,7 @@ namespace GIBS.Modules.Columbarium {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Image ImageNicheSection;
-        
+
         /// <summary>
         /// lblSectionTitle control.
         /// </summary>
@@ -110,7 +112,7 @@ namespace GIBS.Modules.Columbarium {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblSectionTitle;
-        
+
         /// <summary>
         /// DataList1 control.
         /// </summary>
@@ -119,7 +121,7 @@ namespace GIBS.Modules.Columbarium {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DataList DataList1;
-        
+
         /// <summary>
         /// lblTotalNiches control.
         /// </summary>
@@ -128,7 +130,7 @@ namespace GIBS.Modules.Columbarium {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblTotalNiches;
-        
+
         /// <summary>
         /// lblNumberPerRow control.
         /// </summary>
@@ -137,7 +139,7 @@ namespace GIBS.Modules.Columbarium {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblNumberPerRow;
-        
+
         /// <summary>
         /// GridView1 control.
         /// </summary>

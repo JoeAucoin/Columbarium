@@ -50,27 +50,14 @@
 <div class="row" id="WallAndImages" runat="server">
 
 
+     <div class="myImageMap"><asp:Image ID="ImageWall" runat="server" AlternateText="Columbarium" CssClass="img-responsive" /></div>
+
 <p style="text-align:center;">
-
-   
-<asp:Image ID="ImageWall" runat="server" />
-
-    <map name="image-map">
-    <area href="?DisplaySection=1" alt=" Section A" title="Section A" coords="13,2,142,116" shape="rect">
-    <area href="?DisplaySection=2" alt="Section B" title="Section B" coords="148,2,272,114" shape="rect">
-    <area href="?DisplaySection=3" alt="Section C" title="Section C" coords="279,1,403,115" shape="rect">
-    <area href="?DisplaySection=4" alt="Section D" title="Section D" coords="407,2,534,115" shape="rect">
-    <area href="?DisplaySection=5" alt="Section E" title="Section E" coords="538,2,665,116" shape="rect">
-    <area href="?DisplaySection=6" alt="Section F" title="Section F" coords="668,1,796,113" shape="rect">
-    <area href="?DisplaySection=7" alt="Section G" title="Section G" coords="801,0,931,115" shape="rect">
-    <area href="?DisplaySection=8" alt="Crypt" title="Crypt" coords="982,0,1070,116" shape="rect">
-</map>
-
 <br>Display: 
 <asp:DropDownList ID="ddlDisplaySection" runat="server" OnTextChanged="ddlDisplaySection_TextChanged" AutoPostBack="true" Font-Names="Verdana" Font-Size="Large"></asp:DropDownList>
 
-<br />
-    <asp:Image ID="ImageNicheSection" runat="server" CssClass="SectionImage" />
+
+    <asp:Image ID="ImageNicheSection" runat="server" CssClass="img-responsive center-block SectionImage" />
 
     </p>
 
@@ -123,7 +110,7 @@
             - <asp:Label ID="LabelSectionName" runat="server" Text='<%# Eval("SectionName") %>' />
         </ItemTemplate>
     </asp:TemplateField> 
-
+    <asp:BoundField DataField="NicheSize" HeaderText="Niche Size" SortExpression="NicheSize" ItemStyle-HorizontalAlign="Center" />
     <asp:TemplateField HeaderText="Purchaser" SortExpression="LastName">
         <ItemTemplate>
             <asp:Label ID="LabelBuyer1" runat="server" Text='<%# Bind("Buyer1") %>' /> 
@@ -159,7 +146,7 @@
             </ItemTemplate>
     </asp:TemplateField>  
 
-	<asp:TemplateField HeaderText="HasAncestor" ItemStyle-HorizontalAlign="Center" >
+	<asp:TemplateField HeaderText="HasAncestor" ItemStyle-HorizontalAlign="Center" Visible="false" >
             <ItemTemplate>
                 <asp:Image ID="Image12b" runat="server" ImageUrl='<%# (Convert.ToBoolean(Eval("HasAncestor")) ? this.TemplateSourceDirectory + "/images/yes.png" : this.TemplateSourceDirectory + "/images/spacer.gif")%>' />
             </ItemTemplate>

@@ -1,6 +1,6 @@
 <dotnetnuke type="Package" version="5.0">
   <packages>
-    <package name="Columbarium" type="Module" version="00.00.27">
+    <package name="Columbarium" type="Module" version="00.00.37">
       <friendlyName>Columbarium</friendlyName>
       <description>GIBS.com Columbarium module</description>
       <iconFile>~/Images/icon_extensions_32px.png</iconFile>
@@ -20,27 +20,7 @@
       <components>
         <component type="Script">
           <scripts>
-            <basePath>DesktopModules\Columbarium</basePath>
-            <script type="Install">
-              <path>Providers\DataProviders\SqlDataProvider</path>
-              <name>00.00.01.SqlDataProvider</name>
-              <version>00.00.01</version>
-            </script>
-            <script type="Install">
-              <path>Providers\DataProviders\SqlDataProvider</path>
-              <name>00.00.04.SqlDataProvider</name>
-              <version>00.00.04</version>
-            </script>
-            <script type="Install">
-              <path>Providers\DataProviders\SqlDataProvider</path>
-              <name>00.00.05.SqlDataProvider</name>
-              <version>00.00.05</version>
-            </script>
-            <script type="Install">
-              <path>Providers\DataProviders\SqlDataProvider</path>
-              <name>00.00.06.SqlDataProvider</name>
-              <version>00.00.06</version>
-            </script>
+            <basePath>DesktopModules\Columbarium</basePath>    
             <script type="Install">
               <path>Providers\DataProviders\SqlDataProvider</path>
               <name>00.00.07.SqlDataProvider</name>
@@ -71,10 +51,15 @@
               <name>00.00.19.SqlDataProvider</name>
               <version>00.00.19</version>
             </script>
+            <script type="Install">
+              <path>Providers\DataProviders\SqlDataProvider</path>
+              <name>00.00.29.SqlDataProvider</name>
+              <version>00.00.29</version>
+            </script>            
             <script type="UnInstall">
               <path>Providers\DataProviders\SqlDataProvider</path>
               <name>Uninstall.SqlDataProvider</name>
-              <version>00.00.27</version>
+              <version>00.00.37</version>
             </script>
           </scripts>
         </component>

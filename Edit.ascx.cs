@@ -155,6 +155,7 @@ namespace GIBS.Modules.Columbarium
                     {
                         lblNicheNumber.Text = "Niche Number: " + item.NicheNumber.ToString() + " - " + item.SectionName.ToString();
                         lblNichePrice.Text = "Niche Price: " + item.Price.ToString("C", CultureInfo.CurrentCulture);
+                        lblNicheSize.Text = "Niche Size: " + item.NicheSize.ToString() + " Urn(s)";
                     }
                     else
                     {
@@ -461,7 +462,7 @@ namespace GIBS.Modules.Columbarium
 
                  //   EmailContent += "<p><b>Print this and mail it with your payment . . . </b></p>";
                     EmailContent += "<h5>Order Date: " +  item.DateOfReservation.ToShortDateString() + " " + DateTime.Now.ToShortTimeString() + "</h5>";
-                    EmailContent += "<h2>Niche Order Confirmation</h2>";
+                    EmailContent += "<h2>Niche Reservation Confirmation</h2>";
 
                     EmailContent += "<h4>Niche Number: " + item.NicheNumber.ToString() + " - " + item.SectionName.ToString();
                     EmailContent += "<br>Niche Price: " + String.Format("{0:c}", item.Price) + "</h4>";
@@ -518,16 +519,16 @@ namespace GIBS.Modules.Columbarium
                         EmailContent += "</p>";
                     }
 
-                    EmailContent += "<p>";
-                    EmailContent += "<b>Parishioner:</b> " + ReturnBooleanAsString(item.Parishioner) + "<br />";
-                    EmailContent += "<b>Past Pledge:</b> " + ReturnBooleanAsString(item.HasDonated) + "<br />";
-                    EmailContent += "<b>Has Ancestor:</b> " + ReturnBooleanAsString(item.HasAncestor);
-                    if (item.HasAncestor.ToString() == "True")
-                    {
-                        EmailContent += "<br /><b>Ancestor Name:</b> " + item.AncestorName.ToString();
-                    }
+                    //EmailContent += "<p>";
+                    //EmailContent += "<b>Parishioner:</b> " + ReturnBooleanAsString(item.Parishioner) + "<br />";
+                    //EmailContent += "<b>Past Pledge:</b> " + ReturnBooleanAsString(item.HasDonated) + "<br />";
+                    //EmailContent += "<b>Has Ancestor:</b> " + ReturnBooleanAsString(item.HasAncestor);
+                    //if (item.HasAncestor.ToString() == "True")
+                    //{
+                    //    EmailContent += "<br /><b>Ancestor Name:</b> " + item.AncestorName.ToString();
+                    //}
 
-                    EmailContent += "</p>";
+                    //EmailContent += "</p>";
 
                     //    EmailContent += "<br />&nbsp;";
                     EmailContent += "<hr style='background-color: #fff;border-top: 4px dashed #8c8b8b;'>";
@@ -555,8 +556,8 @@ namespace GIBS.Modules.Columbarium
                     List<Attachment> attchmnts = new List<Attachment>();
 
                     // EMAIL PURCHASER
-                    DotNetNuke.Services.Mail.Mail.SendMail("Holy Trinity Columbarium <" + SMTPUserName.ToString() + ">",
-                        "Holy Trinity Columbarium <" + SMTPUserName.ToString() +">",
+                    DotNetNuke.Services.Mail.Mail.SendMail(PortalSettings.PortalName.ToString() + " <" + SMTPUserName.ToString() + ">",
+                       PortalSettings.PortalName.ToString() + " <" + SMTPUserName.ToString() +">",
                             item.email.ToString(),
                             "",
                             "",
@@ -586,8 +587,8 @@ namespace GIBS.Modules.Columbarium
 
                         for (int i = 0; i <= valuePair.Length - 1; i++)
                         {                   
-                            DotNetNuke.Services.Mail.Mail.SendMail("Holy Trinity Columbarium <" + SMTPUserName.ToString() + ">",
-                                "Holy Trinity Columbarium <" + SMTPUserName.ToString() + ">",
+                            DotNetNuke.Services.Mail.Mail.SendMail(PortalSettings.PortalName.ToString() + " <" + SMTPUserName.ToString() + ">",
+                                PortalSettings.PortalName.ToString() + " <" + SMTPUserName.ToString() + ">",
                                 valuePair[i].ToString().Trim(),
                                 "",
                                 _emailBCC.ToString(),

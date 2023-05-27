@@ -194,20 +194,10 @@
     <Content Include="App_LocalResources\Settings.ascx.resx" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Providers\DataProviders\SqlDataProvider\00.00.01.SqlDataProvider" />
     <Content Include="Providers\DataProviders\SqlDataProvider\Uninstall.SqlDataProvider" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Providers\DataProviders\SqlDataProvider\00.00.04.SqlDataProvider" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Providers\DataProviders\SqlDataProvider\00.00.05.SqlDataProvider" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="App_LocalResources\ManageEdit.ascx.resx" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Providers\DataProviders\SqlDataProvider\00.00.06.SqlDataProvider" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="web.config" />
@@ -220,6 +210,7 @@
     <Content Include="SalesContract.pdf" />
     <Content Include="Policies_and_Procedures-Jan-2019.pdf" />
     <None Include="packages.config" />
+    <Content Include="Providers\DataProviders\SqlDataProvider\00.00.29.SqlDataProvider" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>
     </None>

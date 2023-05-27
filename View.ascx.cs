@@ -186,10 +186,13 @@ namespace GIBS.Modules.Columbarium
                 string _NicheNumber = DataBinder.Eval(e.Item.DataItem, "NicheNumber").ToString();
                 string _NicheSection = DataBinder.Eval(e.Item.DataItem, "SectionName").ToString();
                 string _Status = DataBinder.Eval(e.Item.DataItem, "Status").ToString();
+                string _NicheSize = DataBinder.Eval(e.Item.DataItem, "NicheSize").ToString();
                 Image vImage = (Image)e.Item.FindControl("vImage");
 
                 vImage.ImageUrl = FindImage(_Status.ToString());
-                vImage.ToolTip = "Niche Number " + _NicheNumber.ToString() + " - " + _NicheSection.ToString();
+                vImage.Width = Int32.Parse(FindSize(_NicheSize.ToString()));
+                vImage.Height = 20;
+                vImage.ToolTip = "Niche Number " + _NicheNumber.ToString() + " - " + _NicheSection.ToString() + " - Niche Size: " + _NicheSize.ToString() + " Urn(s)";
                 HyperLink ep = (HyperLink)e.Item.FindControl("HyperLinkBookNiche");
                 string vLink = Globals.NavigateURL("Edit", "Resource", _NicheID.ToString(), "mid", this.ModuleId.ToString());
 
@@ -238,5 +241,30 @@ namespace GIBS.Modules.Columbarium
 
             return _theImage.ToString();
         }
+
+
+        public string FindSize(string _size)
+        {
+            string _theSize = "";
+            switch (_size)
+            {
+                case "1":
+                    _theSize = "16";
+                    break;
+                case "2":
+                    _theSize = "24";
+
+                    break;
+
+
+                default:
+                    _theSize = "24";
+
+                    break;
+            }
+
+            return _theSize.ToString();
+        }
+
     }
 }

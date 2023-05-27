@@ -33,11 +33,14 @@ namespace GIBS.Modules.Columbarium
             JavaScript.RequestRegistration(CommonJs.jQueryUI);
             Page.ClientScript.RegisterClientScriptInclude(this.GetType(), "InputMasks", (this.TemplateSourceDirectory + "/JavaScript/jquery.maskedinput-1.4.1.js"));
 
+            LinkButtonDelete.Visible = UserInfo.IsSuperUser;
+
             if (Settings.Contains("RoleName"))
             {
                 if (this.UserInfo.IsInRole(Settings["RoleName"].ToString()))
                 {
                     lblDebug.Text = "Welcome " + this.UserInfo.DisplayName.ToString();
+                    
                 }
                 else
                 {

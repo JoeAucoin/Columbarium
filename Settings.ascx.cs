@@ -15,6 +15,7 @@ using DotNetNuke.Entities.Modules;
 using DotNetNuke.Services.Exceptions;
 using System.Collections;
 using System.Web.UI.WebControls;
+using DotNetNuke.Services.FileSystem;
 
 namespace GIBS.Modules.Columbarium
 {
@@ -189,6 +190,22 @@ namespace GIBS.Modules.Columbarium
         {
             try
             {
+                var image = (DotNetNuke.Services.FileSystem.FileInfo)FileManager.Instance.GetFile(fpPictureWallImage.FileID);
+                string vWallImage = "";
+                string vImagePath = "";
+                if (image != null)
+                {
+                    vWallImage =  FileManager.Instance.GetUrl(image);
+                    vImagePath = image.Folder.ToString();
+                }
+                else
+                {
+                    
+                    vWallImage = txtWallImage.Text.ToString();
+                    vImagePath = txtImagePath.Text.ToString();
+                }
+
+
                 var modules = new ModuleController();
 
                 //the following are two sample Module Settings, using the text boxes that are commented out in the ASCX file.
@@ -214,8 +231,8 @@ namespace GIBS.Modules.Columbarium
                 modules.UpdateModuleSetting(ModuleId, "ReportCredentialsPassword", txtRSCredentialsPassword.Text.ToString());
                 modules.UpdateModuleSetting(ModuleId, "ReportCredentialsDomain", txtRSCredentialsDomain.Text.ToString());
 
-                modules.UpdateModuleSetting(ModuleId, "WallImage", txtWallImage.Text.ToString());
-                modules.UpdateModuleSetting(ModuleId, "ImagePath", txtImagePath.Text.ToString());
+                modules.UpdateModuleSetting(ModuleId, "WallImage", vWallImage.ToString());
+                modules.UpdateModuleSetting(ModuleId, "ImagePath", vImagePath.ToString());
 
                 modules.UpdateModuleSetting(ModuleId, "ShowPriceOnCheckout", CbxShowPriceOnCheckout.Checked.ToString());
                 modules.UpdateModuleSetting(ModuleId, "DisplayRemains", CbxDisplayRemains.Checked.ToString());

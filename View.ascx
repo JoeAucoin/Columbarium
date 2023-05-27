@@ -29,7 +29,11 @@
 <div style="text-align:right;"><asp:HyperLink ID="HyperLinkManage" runat="server" Visible="false" CssClass="btn btn-primary">Admin</asp:HyperLink></div>
 
 
-<div class="myImageMap"><asp:Image ID="ImageWall" runat="server" AlternateText="Columbarium " /></div>
+
+       
+	   <div class="myImageMap"><asp:Image ID="ImageWall" runat="server" AlternateText="Columbarium" CssClass="img-responsive" /></div>
+	   
+
 
 <p style="text-align:center;font-size:1.2em;">
 
@@ -44,16 +48,7 @@
 
     </p>
 
-<map name="image-map">
-    <area href="?DisplaySection=1" alt=" Section A" title="Section A" coords="13,2,142,116" shape="rect">
-    <area href="?DisplaySection=2" alt="Section B" title="Section B" coords="148,2,272,114" shape="rect">
-    <area href="?DisplaySection=3" alt="Section C" title="Section C" coords="279,1,403,115" shape="rect">
-    <area href="?DisplaySection=4" alt="Section D" title="Section D" coords="407,2,534,115" shape="rect">
-    <area href="?DisplaySection=5" alt="Section E" title="Section E" coords="538,2,665,116" shape="rect">
-    <area href="?DisplaySection=6" alt="Section F" title="Section F" coords="668,1,796,113" shape="rect">
-    <area href="?DisplaySection=7" alt="Section G" title="Section G" coords="801,0,931,115" shape="rect">
-    <area href="?DisplaySection=8" alt="Crypt" title="Crypt" coords="982,0,1070,116" shape="rect">
-</map>
+
 
 <p style="text-align:center; padding-top:20px;font-size:1.2em;">
 
@@ -66,7 +61,7 @@
     <asp:DataList ID="DataList1" runat="server" OnItemDataBound="DataList1_ItemDataBound" RepeatLayout="Flow" RepeatDirection="Horizontal" >
         <ItemTemplate>
             <asp:HyperLink ID="HyperLinkBookNiche" runat="server">
-            <asp:Image ID="vImage" runat="server" /></asp:HyperLink>
+            <asp:Image ID="vImage" runat="server" CssClass="marginNiches" /></asp:HyperLink>
         </ItemTemplate>
     </asp:DataList>
 
@@ -83,7 +78,7 @@
 
 
 <div class="container-fluid col-md-6 col-md-offset-3">
-<table border="0" ID="Table1" class="table table-hover" style="width:500px;">
+<table border="0" ID="Table1" class="table table-hover">
 	<tr>
 		<td><img SRC="/DesktopModules/Columbarium/images/bgreen.gif" height="20" width="20" alt="AVAILABLE ~ Click to Reserve">
 
@@ -92,8 +87,8 @@
 		<td>&nbsp;= AVAILABLE ~ Click to Reserve</td>
 
 
-<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
-
+</tr>
+    <tr>
 
 
 

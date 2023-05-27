@@ -78,6 +78,11 @@ namespace GIBS.Modules.Columbarium
                         ImageWall.ImageUrl = Settings["WallImage"].ToString();
                         ImageWall.Attributes.Add("usemap", "#image-map");
                     }
+                    else
+                    {
+
+                        ImageWall.Visible = false;
+                    }
 
                     if (Request.QueryString["DisplaySection"] != null)
                     {

@@ -120,7 +120,7 @@
 	  <div class="row">
 <div class="col-xs-10 col-sm-6 col-md-6 col-lg-6"><h1>Transaction Details</h1></div>
     <div class="col-xs-10 col-md-2 col-md-offset-2"><div class="btn-group" role="group" aria-label="Update Buttons"><asp:LinkButton ID="LinkButtonUpdate" runat="server" ToolTip="Save" OnClick="LinkButtonUpdate_Click" CssClass="btn btn-lg btn-primary"><i class="fas fa-save fa-lg" aria-hidden="true"></i></asp:LinkButton>
-        <asp:LinkButton ID="LinkButtonDelete" runat="server" ToolTip="Delete" CssClass="btn btn-lg btn-default" OnClick="LinkButtonDelete_Click" CausesValidation="false" OnClientClick="javascript:return window.confirm('Do you want to delete this reservation?')"><i class="far fa-trash-alt" aria-hidden="true"></i></asp:LinkButton>
+        <asp:LinkButton ID="LinkButtonDelete" runat="server" ToolTip="Delete" Visible="false" CssClass="btn btn-lg btn-default" OnClick="LinkButtonDelete_Click" CausesValidation="false" OnClientClick="javascript:return window.confirm('Do you want to delete this reservation?')"><i class="far fa-trash-alt" aria-hidden="true"></i></asp:LinkButton>
         <asp:LinkButton ID="Btn_Restore" runat="server" ToolTip="Return to Manage Wall" OnClick="Btn_Restore_Click" CssClass="btn btn-lg btn-default" CausesValidation="false"><i class="fa fa-undo" aria-hidden="true"></i></asp:LinkButton></div></div>
   </div>	
 	

@@ -1,7 +1,7 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="Settings.ascx.cs" Inherits="GIBS.Modules.Columbarium.Settings" %>
 <%@ Register TagPrefix="dnn" TagName="Label" Src="~/controls/LabelControl.ascx" %>
 <%@ Register TagPrefix="dnn" TagName="SectionHead" Src="~/controls/SectionHeadControl.ascx" %>
-
+<%@ Register TagPrefix="dnn" Assembly="DotNetNuke.Web" Namespace="DotNetNuke.Web.UI.WebControls" %>
 
 <div class="dnnForm" id="form-settings">
 
@@ -86,9 +86,13 @@
 	 
     <div class="dnnFormItem">
         <dnn:Label runat="server" ID="lblWallImage" ControlName="txtWallImage" ResourceKey="lblWallImage" Suffix=":" />
-        <asp:Textbox ID="txtWallImage" runat="server" />
-           
+       <asp:Textbox ID="txtWallImage" runat="server" />
+          
      </div>
+     <div class="dnnFormItem">
+        <dnn:Label runat="server" ID="lblSelectWallImage" ControlName="fpPictureWallImage" ResourceKey="lblSelectWallImage" Suffix=":" />
+		 <dnn:dnnfilepicker runat="server" id="fpPictureWallImage" filefilter="jpg,png" />
+</div>		
 	
     <div class="dnnFormItem">
         <dnn:Label runat="server" ID="lbljQueryUI" ControlName="txtjQueryUI" ResourceKey="lbljQueryUI" Suffix=":" />

@@ -189,4 +189,7 @@
   <data name="lblEnableDiscount.Text" xml:space="preserve">
     <value>Enable Discount</value>
   </data>
+  <data name="lblSelectWallImage.Text" xml:space="preserve">
+    <value>Select New Wall Image</value>
+  </data>
 </root>
