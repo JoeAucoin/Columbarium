@@ -348,11 +348,19 @@ namespace GIBS.Modules.Columbarium
             int retValue = 0;
             switch (val)
             {
-                
+
+                case 14000:
+                    retValue = 9950;
+                    break;                
 
                 case 12000:
                     retValue = 9000;
                     break;
+
+                case 9950:
+                    retValue = 8500;
+                    break;
+
                 case 9000:
                     retValue = 7750; 
                     break;

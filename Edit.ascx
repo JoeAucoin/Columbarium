@@ -92,8 +92,8 @@
 
 <div class="nichedetails" id="NicheDetails" runat="server">
 <asp:Label ID="lblNicheNumber" runat="server" /><br />
-<asp:Label ID="lblNichePrice" runat="server" /><br />
-     <asp:Label ID="lblNicheSize" runat="server" />
+<asp:Label ID="lblNichePrice" runat="server" Visible="false" /><br />
+     <asp:Label ID="lblNicheSize" runat="server" Visible="false" />
 </div>
 <asp:Label ID="lblDebug" runat="server" Text=""></asp:Label>
 <div class="container form" id="ReservationForm" runat="server">
@@ -266,13 +266,13 @@
 
       <div class="row">
         <div class="col-sm-12">
-            <div style="display: none"><asp:CheckBox ID="cbxParishioner" runat="server" Text="I am a Independent Presbyterian Church parishioner" TextAlign="Right" CssClass="mycheckbox" /></div>
-            <div style="display: none"><asp:CheckBox ID="cbxHasDonated" runat="server" Text="I made a pledge to Independent Presbyterian Church last year" TextAlign="Right" CssClass="mycheckbox" /></div>
+            <div style="display: none"><asp:CheckBox ID="cbxParishioner" runat="server" Text="I am a Holy Trinity parishioner" TextAlign="Right" CssClass="mycheckbox" /></div>
+            <div style="display: none"><asp:CheckBox ID="cbxHasDonated" runat="server" Text="I made a pledge to Holy Trinity last year" TextAlign="Right" CssClass="mycheckbox" /></div>
             <div style="display: none"><asp:CheckBox ID="cbxHasAncestor" runat="server" Text="I have an ancestor buried at Holy Rood" TextAlign="Right" CssClass="mycheckbox" />&nbsp;&nbsp;&nbsp; <span class="control-label-fontstyle">Ancestor Name(s)</span> <asp:TextBox ID="txtAncestorName" runat="server"></asp:TextBox></div>
-            <asp:CheckBox ID="CheckBox4" runat="server" Text="I have read and agree to the Independent Presbyterian Church Manual of Operations" TextAlign="Right" CssClass="mycheckbox4" /> <a href="/Portals/0/Manual_of_Operations.pdf" target="_blank" title="View Manual of Operations">(View Manual of Operations)</a> 
+            <asp:CheckBox ID="CheckBox4" runat="server" Text="I have read and agree to the Holy Trinity Columbarium Policies and Procedures" TextAlign="Right" CssClass="mycheckbox4" /> <a href="/DesktopModules/Columbarium/Policies_and_Procedures-Jan-2019.pdf" target="_blank" title="View Policies and Procedures">(View Policies)</a> 
             <asp:CustomValidator runat="server" ID="CheckBoxRequired" EnableClientScript="true"
     OnServerValidate="CheckBoxRequired_ServerValidate" ClientValidationFunction="CheckBoxRequired_ClientValidate" CssClass="alert-text">Required!</asp:CustomValidator><br />
-            <asp:CheckBox ID="CheckBox5" runat="server" Text="I have read and agree to the Owner Certificate" TextAlign="Right" CssClass="mycheckbox5" /> <a href="/Portals/0/Owner_Certificate_Sample.pdf" target="_blank" title="View Owner Certificate">(View Owner Certificate)</a>
+            <asp:CheckBox ID="CheckBox5" runat="server" Text="I have read and agree to the Niche Right of Entombment Sales Contract" TextAlign="Right" CssClass="mycheckbox5" /> <a href="/DesktopModules/Columbarium/SalesContract.pdf" target="_blank" title="View Owner Certificate">(View Sales Contract)</a>
             <asp:CustomValidator runat="server" ID="CustomValidator1" EnableClientScript="true"
     OnServerValidate="CheckBoxRequired_ServerValidate5" ClientValidationFunction="CheckBoxRequired_ClientValidate5" CssClass="alert-text">Required!</asp:CustomValidator>
             <br />
